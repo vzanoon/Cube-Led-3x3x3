@@ -54,7 +54,7 @@ void config_MatrizCubo(int op){
       }
      break;
     
-   // Padrao 4
+   // Padrao 3
     case 3:
       for(int i = 0; i < 3; i++){
         for(int j = 0; j < 3; j++){
@@ -73,6 +73,7 @@ void config_MatrizCubo(int op){
         }
       }
     break;
+      
    // Padrao 5
    case 5:
       for(int i = 0; i < 3; i++){
@@ -82,6 +83,7 @@ void config_MatrizCubo(int op){
         }
       }
     break;
+      
     // Padrao 6
     case 6:
       for(int i = 0; i < 3; i++){
@@ -121,7 +123,8 @@ void config_MatrizCubo(int op){
         }
       }
     break;
-    // Padrao 10
+      
+    //Padrao 10
     case 10:
       for(int i = 0; i < 3; i++){
         for(int j = 0; j < 3; j++){
@@ -130,6 +133,7 @@ void config_MatrizCubo(int op){
         }
       }
     break;
+      
     //Padrao 11
     case 11:
       for(int i = 0; i < 3; i++){
@@ -139,6 +143,7 @@ void config_MatrizCubo(int op){
         }
       }
     break;
+      
      //Padrao 12
     case 12:
       for(int i = 0; i < 3; i++){
@@ -148,6 +153,7 @@ void config_MatrizCubo(int op){
         }
       }
     break;
+      
     //Padrao 13
     case 13:
       for(int i = 0; i < 3; i++){
@@ -157,6 +163,7 @@ void config_MatrizCubo(int op){
         }
       }
     break;
+      
    // Padrao 14
     case 14:
       for(j = 0; j < 3; j++){
@@ -169,46 +176,7 @@ void config_MatrizCubo(int op){
           digitalWrite(Andares[j], LOW);
         }
       }
-     break; 
- 
-    
-     /*
-      // Efeito Random
-      case 15:
-      for(j = 0; j < 3; j++){
-        //j = random(0,3);
-        digitalWrite(Andares[j], LOW);
-        for (int i = 0 ; i < 10; i++){
-          i = random(0,10);
-          digitalWrite(Colunas[i], HIGH);
-          delay_ms(5e2);
-          digitalWrite(Colunas[i], LOW);
-        }
-        digitalWrite(Andares[j], HIGH);
-      }
      break;
-     // 1 andar por vez
-    case 16:
-      for(i = 0; i < 3; i++){
-        digitalWrite(Andares[i], HIGH);
-        delay_ms(5e2);
-        digitalWrite(Andares[i], LOW);
-        delay_ms(5e2);
-      } 
-    break;
-    // 1 led e 1 andar por vez
-    case 17:
-      for(j = 0; j < 3; j++){
-        digitalWrite(Andares[j], HIGH);
-        for(i = 0; i < 10; i++){
-          digitalWrite(Colunas[i], HIGH);
-          delay_ms(5e2);
-          digitalWrite(Colunas[i], LOW);
-        }
-        digitalWrite(Andares[j], LOW);
-      }
-    break;
-    */
   }
 }
 
@@ -221,13 +189,13 @@ void loop(){
   
   for(int op = 1; op < 15; op++){  
     for(int k = 0; k < 3; k++){
-      if(flag == 0){  // Se o andar está desabilitado
-        digitalWrite(Andares[k],HIGH); // Habilito o andar
+      if(flag == 0){  
+        digitalWrite(Andares[k],HIGH);
         flag = 1; 
-        if(flag == 1){ // Se o andar está habilitado
-          config_MatrizCubo(op); // Configura a Animação do Cubo de Led 3x3x3
+        if(flag == 1){ 
+          config_MatrizCubo(op); 
           flag = 0;
-          delay_ms(5e2); //500*1e-03s = 0.5s
+          delay_ms(5e2);
           digitalWrite(Andares[k],LOW);
         }
       }
